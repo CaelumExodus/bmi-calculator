@@ -11,6 +11,7 @@ import {
   Typography
 } from '@mui/material';
 import { useState } from 'react';
+import colourPalette from "../../../utils/colourPalette.ts";
 
 export default function CurrencyExchangeView() {
   const [exchangeRate, setExchangeRate] = useState<number | null>(null);
@@ -91,7 +92,7 @@ export default function CurrencyExchangeView() {
           sx={ { mb: 2 } }
         />
 
-        <Button type="submit" variant="contained" color="primary" fullWidth>
+        <Button type="submit" variant="contained" sx={ { bgcolor: colourPalette.primary } } fullWidth>
           Sprawdź kurs
         </Button>
 

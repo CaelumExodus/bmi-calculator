@@ -3,6 +3,7 @@ import { Box, Button, TextField, Typography } from "@mui/material";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as Yup from "yup";
+import colourPalette from "../../../utils/colourPalette.ts";
 
 export default function BmiCalculatorView() {
   const {
@@ -77,9 +78,8 @@ export default function BmiCalculatorView() {
       />
 
       <Button
-        sx={ { mt: 2 } }
+        sx={ { mt: 2, bgcolor: colourPalette.primary } }
         variant="contained"
-        color="primary"
         onClick={ handleSubmit(calculateBmi) }
         fullWidth
       >

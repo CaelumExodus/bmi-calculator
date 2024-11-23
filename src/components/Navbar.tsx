@@ -1,6 +1,7 @@
 import { AppBar, Box, Button, Container, Divider, Toolbar } from "@mui/material";
 import { useAuth } from "../contexts/AuthContext.tsx";
 import { Link, useLocation } from "react-router";
+import colourPalette from "../utils/colourPalette.ts";
 
 export default function Navbar() {
   const { logout } = useAuth();
@@ -20,7 +21,7 @@ export default function Navbar() {
               component={ Link }
               to='/'
               sx={ {
-                backgroundColor: isActive('/') ? '#E4E0E1' : 'inherit',
+                backgroundColor: isActive('/') ? colourPalette.light : 'inherit',
               } }>
               Kalkulator BMI
             </Button>
@@ -30,7 +31,7 @@ export default function Navbar() {
               component={ Link }
               to='/exchange'
               sx={ {
-                backgroundColor: isActive('/exchange') ? '#E4E0E1' : 'inherit',
+                backgroundColor: isActive('/exchange') ? colourPalette.light : 'inherit',
               } }>
               Kursy walut
             </Button>

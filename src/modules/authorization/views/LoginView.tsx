@@ -4,6 +4,7 @@ import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
 import { useAuth } from "../../../contexts/AuthContext.tsx";
 import { useNavigate } from "react-router";
+import colourPalette from "../../../utils/colourPalette.ts";
 
 export default function LoginView() {
   const { login } = useAuth();
@@ -31,11 +32,13 @@ export default function LoginView() {
         padding: 2,
         borderRadius: 2,
         boxShadow: 3,
+        bgcolor: 'inherit'
       } }
     >
       <Typography sx={ { textAlign: 'center' } } variant='h4'>Zaloguj się</Typography>
 
       <Box component='form' onSubmit={ handleSubmit(onSubmit) }>
+
         <TextField
           fullWidth
           label="Login: test"
@@ -56,11 +59,9 @@ export default function LoginView() {
           error={ !!errors.password }
           helperText={ errors.password?.message }
         />
-
         <Button
-          sx={ { mt: 3 } }
+          sx={ { mt: 3, bgcolor: colourPalette.primary, color: '#FFFFFF' } }
           fullWidth
-          variant="contained"
           type="submit"
         >
           Zaloguj
