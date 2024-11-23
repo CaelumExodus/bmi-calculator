@@ -2,8 +2,8 @@ import UnauthorizedLayout from "./layouts/UnauthorizedLayout";
 import AuthorizedLayout from "./layouts/AuthorizedLayout";
 import { useAuth } from "./contexts/AuthContext";
 import { Navigate, Route, Routes } from "react-router";
-import { Box } from "@mui/material";
 import LoginView from "./modules/authorization/views/LoginView.tsx";
+import BmiCalculatorView from "./modules/bmiCalculator/views/BmiCalculatorView.tsx";
 
 export default function AppRoutes() {
   const { isAuthenticated } = useAuth();
@@ -19,8 +19,8 @@ export default function AppRoutes() {
 
       { isAuthenticated && (
         <Route path="/" element={ <AuthorizedLayout/> }>
-          <Route path="protected" element={ <Box>PROTECTED</Box> }/>
-          <Route path="*" element={ <Navigate to="/protected"/> }/>
+          <Route path="" element={ <BmiCalculatorView/> }/>
+          <Route path="*" element={ <Navigate to=""/> }/>
         </Route>
       ) }
     </Routes>
