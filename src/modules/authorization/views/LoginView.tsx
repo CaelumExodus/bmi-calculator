@@ -16,7 +16,7 @@ export default function LoginView() {
   const onSubmit = (data: LoginFormData) => {
     if (data.username === 'test' && data.password === 'test') {
       login();
-      navigate('/protected');
+      navigate('/');
     } else {
       alert('niepoprawne dane logowania');
     }
