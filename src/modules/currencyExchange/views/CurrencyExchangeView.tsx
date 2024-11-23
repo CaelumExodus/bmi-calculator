@@ -1,17 +1,10 @@
 import { SubmitHandler, useForm } from 'react-hook-form';
-import {
-  Box,
-  Button,
-  FormControl,
-  FormHelperText,
-  InputLabel,
-  MenuItem,
-  Select,
-  TextField,
-  Typography
-} from '@mui/material';
+import { Box, Button, FormControl, FormHelperText, MenuItem, Select, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 import colourPalette from "../../../utils/colourPalette.ts";
+import * as yup from 'yup';
+import { yupResolver } from "@hookform/resolvers/yup";
+
 
 export default function CurrencyExchangeView() {
   const [exchangeRate, setExchangeRate] = useState<number | null>(null);
@@ -21,7 +14,7 @@ export default function CurrencyExchangeView() {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm<CurrencyFormInputs>({});
+  } = useForm<CurrencyFormInputs>({ resolver: yupResolver(validationSchema) });
 
   const onSubmit: SubmitHandler<CurrencyFormInputs> = (data: CurrencyFormInputs) => {
     const fetchedExchangeRate = fetchExchangeRate(data.fromCurrency, data.toCurrency);
@@ -58,7 +51,7 @@ export default function CurrencyExchangeView() {
         margin: "auto",
       } }>
         <FormControl fullWidth sx={ { mb: 2 } } error={ !!errors.fromCurrency }>
-          <InputLabel>Z waluty</InputLabel>
+          <Typography sx={ { fontSize: '12px', color: 'rgba(0, 0, 0, 0.6)' } }>Z waluty</Typography>
           <Select variant='standard' defaultValue='PLN' { ...register('fromCurrency') } label="From Currency">
             { currencies.map((currency) => (
               <MenuItem key={ currency } value={ currency }>
@@ -70,7 +63,7 @@ export default function CurrencyExchangeView() {
         </FormControl>
 
         <FormControl fullWidth sx={ { mb: 2 } } error={ !!errors.toCurrency }>
-          <InputLabel>Do waluty</InputLabel>
+          <Typography sx={ { fontSize: '12px', color: 'rgba(0, 0, 0, 0.6)' } }>Do waluty</Typography>
           <Select variant='standard' defaultValue='EUR' { ...register('toCurrency') } label="To Currency">
             { currencies.map((currency) => (
               <MenuItem key={ currency } value={ currency }>
@@ -102,7 +95,7 @@ export default function CurrencyExchangeView() {
               Kurs: { exchangeRate.toFixed(4) } { `(${ currencies[0] } to ${ currencies[1] })` }
             </Typography>
             { convertedAmount !== null && (
-              <Typography variant="body2">
+              <Typography sx={ { mt: 0.5 } } variant="body2">
                 Przeliczona kwota : { convertedAmount.toFixed(2) } { currencies[1] }
               </Typography>
             ) }
@@ -124,3 +117,15 @@ type CurrencyRates = {
     [key: string]: number;
   };
 };
+
+const validationSchema = yup.object().shape({
+  amount: yup.number()
+    .required('Pole wymagane')
+    .moreThan(0.01, 'Wartość musi być większa niż 0.01')
+    .typeError('Wartość musi być liczbą'),
+
+  fromCurrency: yup.string().required('Pole wymagane'),
+
+  toCurrency: yup.string().required('Pole wymagane'),
+});
+
