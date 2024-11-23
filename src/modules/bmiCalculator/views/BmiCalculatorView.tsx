@@ -41,10 +41,6 @@ export default function BmiCalculatorView() {
   return (
     <Box
       sx={ {
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        justifyContent: "center",
         padding: 2,
         borderRadius: 1,
         boxShadow: 3,

@@ -4,6 +4,7 @@ import { useAuth } from "./contexts/AuthContext";
 import { Navigate, Route, Routes } from "react-router";
 import LoginView from "./modules/authorization/views/LoginView.tsx";
 import BmiCalculatorView from "./modules/bmiCalculator/views/BmiCalculatorView.tsx";
+import CurrencyExchangeView from "./modules/currencyExchange/views/CurrencyExchangeView.tsx";
 
 export default function AppRoutes() {
   const { isAuthenticated } = useAuth();
@@ -19,8 +20,9 @@ export default function AppRoutes() {
 
       { isAuthenticated && (
         <Route path="/" element={ <AuthorizedLayout/> }>
-          <Route path="" element={ <BmiCalculatorView/> }/>
-          <Route path="*" element={ <Navigate to=""/> }/>
+          <Route path="bmi" element={ <BmiCalculatorView/> }/>
+          <Route path="exchange" element={ <CurrencyExchangeView/> }/>
+          <Route path="*" element={ <Navigate to="bmi"/> }/>
         </Route>
       ) }
     </Routes>
