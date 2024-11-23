@@ -1,4 +1,4 @@
-import { Box, Button, Card, TextField } from '@mui/material';
+import { Box, Button, Card, TextField, Typography } from '@mui/material';
 import { useForm } from 'react-hook-form';
 import { yupResolver } from '@hookform/resolvers/yup';
 import * as yup from 'yup';
@@ -33,11 +33,12 @@ export default function LoginView() {
         boxShadow: 3,
       } }
     >
+      <Typography sx={ { textAlign: 'center' } } variant='h4'>Zaloguj się</Typography>
 
       <Box component='form' onSubmit={ handleSubmit(onSubmit) }>
         <TextField
           fullWidth
-          label="LoginView"
+          label="Login: test"
           variant="standard"
           margin='normal'
           { ...register('username') }
@@ -47,7 +48,7 @@ export default function LoginView() {
 
         <TextField
           fullWidth
-          label="Hasło"
+          label="Hasło: test"
           type="password"
           variant="standard"
           margin='normal'
