@@ -6,7 +6,7 @@ export default function AuthorizedLayout() {
 
 
   return (
-    <Box>
+    <Box sx={ { '& .MuiButton-root': { textTransform: 'none' } } }>
       <Navbar/>
 
       <Container sx={ { minHeight: '100vh', padding: 0 } }>

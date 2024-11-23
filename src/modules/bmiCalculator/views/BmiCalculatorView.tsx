@@ -49,12 +49,12 @@ export default function BmiCalculatorView() {
       } }
     >
       <Typography variant="h5" sx={ { marginBottom: 2 } }>
-        BMI Calculator
+        Oblicz BMI
       </Typography>
 
       <TextField
         { ...register("weight") }
-        label="Weight (kg)"
+        label="Waga (kg)"
         variant="standard"
         margin='normal'
         type="number"
@@ -66,7 +66,7 @@ export default function BmiCalculatorView() {
 
       <TextField
         { ...register("height") }
-        label="Height (cm)"
+        label="Wzrost (cm)"
         variant="standard"
         margin='normal'
         type="number"
