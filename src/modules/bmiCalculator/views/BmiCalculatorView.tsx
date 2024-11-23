@@ -87,7 +87,7 @@ export default function BmiCalculatorView() {
       </Button>
 
       { bmi !== null && (
-        <Box sx={ { marginTop: 2, textAlign: "center" } }>
+        <Box sx={ { marginTop: 2, textAlign: "center", } }>
           <Typography variant="h6">Twoje BMI Wynosi: <b>{ bmi }</b></Typography>
           <Typography variant="body1" color="textSecondary">
             Kategoria: <b>{ category }</b>

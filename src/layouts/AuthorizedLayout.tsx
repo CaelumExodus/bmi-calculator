@@ -10,7 +10,7 @@ export default function AuthorizedLayout() {
     <Box sx={ { '& .MuiButton-root': { textTransform: 'none' }, bgcolor: colourPalette.bg } }>
       <Navbar/>
 
-      <Container sx={ { minHeight: '100vh', padding: 0, mt: 5 } }>
+      <Container sx={ { mt: 5, pb: 5 } }>
         <Box>
           <Outlet/>
         </Box>

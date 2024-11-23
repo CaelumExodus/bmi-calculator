@@ -10,10 +10,8 @@ export default function Navbar() {
   const isActive = (path: string) => location.pathname === path;
 
   return <AppBar position="sticky" sx={ { bgcolor: 'inherit', boxShadow: 'none' } }>
-    <Container sx={ { p: 0 } }>
-
+    <Container>
       <Toolbar sx={ { p: { xs: 0 }, color: 'black' } }>
-
         <Box sx={ { display: 'flex', justifyContent: 'space-between', width: '100%' } }>
           <Box sx={ { display: 'flex' } }>
             <Button

@@ -5,8 +5,8 @@ import colourPalette from "../utils/colourPalette.ts";
 export default function UnauthorizedLayout() {
   return (
     <Container
-      sx={ { minHeight: '100vh', '& .MuiButton-root': { textTransform: 'none' }, bgcolor: colourPalette.bg } }>
-      <Box sx={ { pt: 10 } }>
+      sx={ { '& .MuiButton-root': { textTransform: 'none' }, bgcolor: colourPalette.bg } }>
+      <Box sx={ { py: 5 } }>
         <Outlet/>
       </Box>
     </Container>
