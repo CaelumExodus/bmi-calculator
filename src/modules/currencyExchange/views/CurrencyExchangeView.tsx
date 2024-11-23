@@ -14,6 +14,7 @@ export default function CurrencyExchangeView() {
     register,
     handleSubmit,
     formState: { errors },
+    getValues
   } = useForm<CurrencyFormInputs>({ resolver: yupResolver(validationSchema) });
 
   const onSubmit: SubmitHandler<CurrencyFormInputs> = (data: CurrencyFormInputs) => {
@@ -92,11 +93,11 @@ export default function CurrencyExchangeView() {
         { exchangeRate !== null && (
           <Box sx={ { mt: 2 } }>
             <Typography variant="body1">
-              Kurs: { exchangeRate.toFixed(4) } { `(${ currencies[0] } to ${ currencies[1] })` }
+              Kurs: { exchangeRate.toFixed(4) } { `(${ getValues('fromCurrency') } do ${ getValues('toCurrency') })` }
             </Typography>
             { convertedAmount !== null && (
               <Typography sx={ { mt: 0.5 } } variant="body2">
-                Przeliczona kwota : { convertedAmount.toFixed(2) } { currencies[1] }
+                Przeliczona kwota : { convertedAmount.toFixed(2) } { getValues('toCurrency') }
               </Typography>
             ) }
           </Box>
