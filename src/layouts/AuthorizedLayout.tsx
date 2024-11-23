@@ -1,12 +1,19 @@
 import { Box, Container } from "@mui/material";
 import { Outlet } from "react-router";
+import Navbar from "../components/Navbar.tsx";
 
 export default function AuthorizedLayout() {
+
+
   return (
-    <Container>
-      <Box>
-        <Outlet/>
-      </Box>
-    </Container>
+    <Box>
+      <Navbar/>
+
+      <Container sx={ { minHeight: '100vh', padding: 0 } }>
+        <Box>
+          <Outlet/>
+        </Box>
+      </Container>
+    </Box>
   );
 }
