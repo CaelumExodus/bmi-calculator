@@ -22,7 +22,7 @@ export default function AuthProvider({ children }: AuthProviderProps) {
   }, []);
 
   const login = () => {
-    Cookies.set('auth-token', 'mock-token', { expires: 1 }); // 1-day expiration
+    Cookies.set('auth-token', 'mock-token', { expires: 1 });
     setIsAuthenticated(true);
   };
 
